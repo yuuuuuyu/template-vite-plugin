@@ -1,48 +1,28 @@
 # Introduce
-用于构建前清理上次构建的产物
+开发vite插件模板项目
 
 ## Install
 ```bash
-pnpm install vite-plugin-clean -D
+pnpm install beeboat-cli -g
+
+beeboat-cli create vite-plugin-xxxxxx
 ```
 
-## Usage
-```js
-import { defineConfig } from 'vite'
-import vitePluginClean from 'vite-plugin-clean'
+## Example
+```bash
+zhiyong.yu@yuuuuuu test-cli % beeboat-cli create vite-plugin-xxxxx
+? 输入项目名称: vite-plugin-xxxxx
+✔ 正在获取模版信息...
+? 请选择模版 
+  beeboat-parser 
+  template-element-ui 
+  template-packages 
+❯ template-vite-plugin 
 
-export default defineConfig({
-  plugins: [
-    vitePluginClean()
-  ]
-})
-```
+Successfully created project vite-plugin-xxxxx
 
-## API
+  cd vite-plugin-xxxxx
 
-### options
-
-```js
-export type PluginOptions = {
-  folder: string | string[]
-  hooks?: {
-    buildStart?: () => void | Promise<void>
-    closeBundle?: () => void | Promise<void>
-  }
-}
-```
-### example
-```js
-export default defineConfig({
-  plugins: [
-    vitePluginClean({
-        folder: 'dist', // default: dist or ['dist'] or ['dist', 'lib']
-        hooks: {
-          buildStart() {
-            console.log('build start')
-          }
-        }
-    })
-  ]
-})
+  pnpm install
+  pnpm dev
 ```
